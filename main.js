@@ -33,10 +33,19 @@ document.querySelector('#app').innerHTML = `
           <p id="resultRectanguloArea">resultado</p>
       </form>
     </div>
+
+    <div class="areaCirculo card">
+      <h3>Calcula el area de un circulo</h3>
+      <form id="formCirculoArea">
+          <input id="radioCirculo" type="text" required placeholder="cual es el valor del radio">
+          <button id="btn">calcular</button>
+          <p id="resultCirculoArea">resultado</p>
+      </form>
+    </div>
   </main>
 `
 
-//SEleccion de elementos
+//Seleccion de elementos
 //-----------------------
 //triangulo isosceles
 const resultTrianguloIsoseles = document.querySelector("#resultTrianguloIsoseles")
@@ -53,6 +62,10 @@ const lado1Rectangulo = document.querySelector("#lado1Rectangulo")
 const lado2Rectangulo = document.querySelector("#lado2Rectangulo")
 const resultRectanguloArea = document.querySelector("#resultRectanguloArea")
 const formRectanguloArea = document.querySelector("#formRectanguloArea")
+//Area circulo
+const radioCirculo = document.querySelector("#radioCirculo")
+const formCirculoArea = document.querySelector("#formCirculoArea")
+const resultCirculoArea = document.querySelector("#resultCirculoArea")
 //-----------------------
 
 //Esta función me ayuda a calcular la altura de un triangulo isosceles
@@ -79,7 +92,7 @@ function perimetroRectangulo(ladoCorto, ladoLargo){
   return `El valor del perimetro es: ${result.toFixed(2)}`
 }
 
-function calcularOnClickRectangulo(e){
+function calcularOnClickPerimetroRectangulo(e){
   e.preventDefault()
   const valor1 = parseInt(ladoCorto.value)
   const valor2 = parseInt(ladoLargo.value)
@@ -87,5 +100,34 @@ function calcularOnClickRectangulo(e){
   resultRectanguloPerimetro.innerHTML = perimetro
 }
 
-formRectangulo.addEventListener("submit", calcularOnClickRectangulo)
+formRectangulo.addEventListener("submit", calcularOnClickPerimetroRectangulo)
 //-------------------------------------------------------------------------
+
+//Está seccion me ayuda a calcular el area de un rectangulo
+function areaRectangulo(ladoCorto, ladoLargo){
+  const resultado = ladoCorto*ladoLargo
+  return `El valor del area es: ${resultado.toFixed(2)} Uni^2` 
+}
+
+function calcularOnClickAreaRectangulo(e){
+  e.preventDefault()
+  const valor1 = parseInt(lado1Rectangulo.value)
+  const valor2 = parseInt(lado2Rectangulo.value)
+  const area = areaRectangulo(valor1, valor2)
+  resultRectanguloArea.innerHTML = area
+}
+formRectanguloArea.addEventListener("submit", calcularOnClickAreaRectangulo)
+//-------------------------------------------------------------------------
+function areaCirculo(radio){
+  const area = (radio*radio)*Math.PI
+  return `èl area del circulo es ${area.toFixed(2)}`
+}
+
+function calcularOnClickAreaCirculo(e){
+  e.preventDefault()
+  const radio = parseInt(radioCirculo.value)
+  const area = areaCirculo(radio)
+  resultCirculoArea.innerHTML = area 
+}
+
+formCirculoArea.addEventListener("submit", calcularOnClickAreaCirculo)
