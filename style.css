@@ -18,35 +18,48 @@
 
 body {
   margin: 0;
+  padding: 0;
   display: flex;
+  justify-content: center;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 2.2em;
   line-height: 1.1;
 }
 
 #app {
-  max-width: 1280px;
+  width: 100%;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
 main{
+  display: flex;
+  flex-direction: column;
+  align-items:  center;
+  justify-content: center;
+}
+
+.card-container{
   display: grid;
-  justify-items:  center;
+  grid-gap: 10px;
+  width: 100%;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 341px));
 }
 
 .card{
-  padding: 10px;
-  margin: 10px;
-  border: 2px solid white;
+  padding: 5px;
+  margin: 5px;
+  border: 2px solid white; 
   border-radius: 8px;
-  max-width: 500px;
+  max-width: 310px;
+   
 }
 
 
